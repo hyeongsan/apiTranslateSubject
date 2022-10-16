@@ -46,13 +46,13 @@ public class ApiExamTranslateNmt {
 
         String responseBody = post(apiURL, requestHeaders, text);
 
-        System.out.println(responseBody);
         
 		JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject = (JSONObject)jsonParser.parse(responseBody); 
 		JSONObject movieInfoResult = (JSONObject)jsonObject.get("message"); 
 		JSONObject movieInfo = (JSONObject)movieInfoResult.get("result");
         
+		System.out.println("번역 성공");
 		System.out.println(movieInfo.get("translatedText"));
 		
 		String translateOutput = (String) movieInfo.get("translatedText");
